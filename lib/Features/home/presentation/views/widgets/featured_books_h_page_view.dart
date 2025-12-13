@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_item.dart';
 
-class CustomBooksHPageView extends StatefulWidget {
-  const CustomBooksHPageView({super.key});
+class FeaturedBooksHPageView extends StatefulWidget {
+  const FeaturedBooksHPageView({super.key});
 
   @override
-  State<CustomBooksHPageView> createState() => _CustomBooksHPageViewState();
+  State<FeaturedBooksHPageView> createState() => _FeaturedBooksHPageViewState();
 }
 
-class _CustomBooksHPageViewState extends State<CustomBooksHPageView> {
+class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
   late final PageController _controller;
   double _currentPage = 0;
 
@@ -27,7 +27,7 @@ class _CustomBooksHPageViewState extends State<CustomBooksHPageView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+      padding: const EdgeInsets.only(left: 32.0),
       child: SizedBox(
         // height: 280,
         height: MediaQuery.of(context).size.height * 0.28,
@@ -46,7 +46,7 @@ class _CustomBooksHPageViewState extends State<CustomBooksHPageView> {
   }
 
   void initPageController() {
-    _controller = PageController(viewportFraction: 0.5)
+    _controller = PageController(viewportFraction: 0.45)
       ..addListener(() {
         setState(() {
           _currentPage = _controller.page!;
