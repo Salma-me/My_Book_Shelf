@@ -8,6 +8,7 @@ class BestSellerListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsets.zero,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: 5,
       itemBuilder: (context, index) => const BestSellerItem(),
     );

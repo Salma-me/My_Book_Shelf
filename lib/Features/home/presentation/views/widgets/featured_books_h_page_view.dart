@@ -27,7 +27,7 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 32.0),
+      padding: const EdgeInsets.only(left: 30.0),
       child: SizedBox(
         // height: 280,
         height: MediaQuery.of(context).size.height * 0.28,
