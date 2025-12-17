@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/constants.dart';
+import 'package:my_book_shelf/core/utils/app_router.dart';
 import 'package:my_book_shelf/core/utils/assets.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
@@ -9,81 +12,68 @@ class BestSellerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            width: 80,
-            height: 130,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(Assets.testImage),
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kBookDetailsViewPath);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: 80,
+              height: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(Assets.testImage),
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: 30),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Harry Potter and the Goblet of Fire',
-                  softWrap: true,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: Styles.textStyle20.copyWith(fontFamily: kGTSectraFine),
-                ),
-                Text(
-                  'J.K. Rowling',
-                  textAlign: TextAlign.start,
-                  style: Styles.textStyle14.copyWith(
-                    color: Colors.white.withValues(alpha: 0.7),
-                  ),
-                ),
-
-                Row(
-                  children: [
-                    Text(
-                      '19.99 €',
-                      style: Styles.textStyle20.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+            const SizedBox(width: 30),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Harry Potter and the Goblet of Fire',
+                    softWrap: true,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: Styles.textStyle20.copyWith(
+                      fontFamily: kGTSectraFine,
                     ),
-                    const Spacer(),
-                    const BookRating(),
-                  ],
-                ),
-              ],
+                  ),
+                  Text(
+                    'J.K. Rowling',
+                    textAlign: TextAlign.start,
+                    style: Styles.textStyle14.copyWith(
+                      color: Colors.white.withValues(alpha: 0.7),
+                    ),
+                  ),
+
+                  Row(
+                    children: [
+                      Text(
+                        '19.99 €',
+                        style: Styles.textStyle20.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      const BookRating(),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(FontAwesomeIcons.solidStar, color: Color(0xffFFDD4F), size: 14),
-        SizedBox(width: 6.3),
-        Text('4.8 ', style: Styles.textStyle16),
-        Text(
-          '(2390)',
-          style: Styles.textStyle14.copyWith(
-            color: Colors.white.withValues(alpha: 0.5),
-          ),
-        ),
-      ],
-    );
-  }
-}
