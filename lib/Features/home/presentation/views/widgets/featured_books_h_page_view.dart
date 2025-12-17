@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_item.dart';
+import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
 
 class FeaturedBooksHPageView extends StatefulWidget {
   const FeaturedBooksHPageView({super.key});
@@ -38,7 +38,10 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
           itemCount: 5,
           itemBuilder: (context, index) {
             double scale = getItemScale(index);
-            return Transform.scale(scale: scale, child: const CustomBookItem());
+            return Transform.scale(
+              scale: scale,
+              child: const CustomBookImage(),
+            );
           },
         ),
       ),

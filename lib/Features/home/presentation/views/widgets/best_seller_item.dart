@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/constants.dart';
