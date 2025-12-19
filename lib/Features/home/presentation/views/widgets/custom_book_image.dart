@@ -8,7 +8,7 @@ class CustomBookImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(Assets.testImage),
