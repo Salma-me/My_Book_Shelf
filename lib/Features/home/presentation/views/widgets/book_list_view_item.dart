@@ -6,8 +6,8 @@ import 'package:my_book_shelf/core/utils/app_router.dart';
 import 'package:my_book_shelf/core/utils/assets.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BestSellerItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsViewPath);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -75,4 +75,3 @@ class BestSellerItem extends StatelessWidget {
     );
   }
 }
-

@@ -26,24 +26,18 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 30.0),
-      child: SizedBox(
-        // height: 280,
-        height: MediaQuery.of(context).size.height * 0.28,
-        child: PageView.builder(
-          padEnds: false,
-          controller: _controller,
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            double scale = getItemScale(index);
-            return Transform.scale(
-              scale: scale,
-              child: const CustomBookImage(),
-            );
-          },
-        ),
+    return SizedBox(
+      // height: 280,
+      height: MediaQuery.of(context).size.height * 0.28,
+      child: PageView.builder(
+        padEnds: false,
+        controller: _controller,
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          double scale = getItemScale(index);
+          return Transform.scale(scale: scale, child: const CustomBookImage());
+        },
       ),
     );
   }
