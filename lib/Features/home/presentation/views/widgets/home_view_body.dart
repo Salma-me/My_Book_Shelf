@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/Features/home/presentation/views/widgets/best_seller_list_view.dart';
+import 'package:my_book_shelf/Features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/featured_books_h_page_view.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
@@ -30,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: BestSellerListView(),
+            child: NewestBooksListView(),
           ),
         ),
       ],
