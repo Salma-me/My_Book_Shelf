@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/Features/home/presentation/views/widgets/suggested_books_h_list_view.dart';
+import 'package:my_book_shelf/Features/home/presentation/views/widgets/featured_books_h_list_view.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
-class SuggestedBooksSection extends StatelessWidget {
-  const SuggestedBooksSection({super.key});
+class FeaturedBooksSection extends StatelessWidget {
+  const FeaturedBooksSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class SuggestedBooksSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        SuggestedBooksHListView(),
+        FeaturedBooksHListView(),
         const SizedBox(height: 40),
       ],
     );

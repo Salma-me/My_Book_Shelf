@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
 
-class SuggestedBooksHListView extends StatelessWidget {
-  const SuggestedBooksHListView({super.key});
+class FeaturedBooksHListView extends StatelessWidget {
+  const FeaturedBooksHListView({super.key});
 
   @override
   Widget build(BuildContext context) {
