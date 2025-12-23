@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/constants.dart';
 import 'package:my_book_shelf/core/utils/app_router.dart';
@@ -7,7 +8,8 @@ import 'package:my_book_shelf/core/utils/assets.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({super.key, required this.book});
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,10 @@ class BookListViewItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage(Assets.testImage),
+                  image: NetworkImage(
+                    book.volumeInfo?.imageLinks?.thumbnail ?? '',
+                  ),
+                  // image: AssetImage(Assets.testImage),
                 ),
               ),
             ),
@@ -37,7 +42,7 @@ class BookListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Harry Potter and the Goblet of Fire',
+                    book.volumeInfo?.title ?? '',
                     softWrap: true,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -47,7 +52,7 @@ class BookListViewItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'J.K. Rowling',
+                    book.volumeInfo?.authors?.join(', ') ?? '',
                     textAlign: TextAlign.start,
                     style: Styles.textStyle14.copyWith(
                       color: Colors.white.withValues(alpha: 0.7),

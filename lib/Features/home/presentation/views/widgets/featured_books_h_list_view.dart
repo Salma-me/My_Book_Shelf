@@ -20,7 +20,7 @@ class FeaturedBooksHListView extends StatelessWidget {
             child: SizedBox(
               height: deviceHeight * 0.11,
               width: MediaQuery.of(context).size.width * 0.17,
-              child: CustomBookImage(),
+              child: CustomBookImage(imageUrl: '',),
             ),
           );
         },

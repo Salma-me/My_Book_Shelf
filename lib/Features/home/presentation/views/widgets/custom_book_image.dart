@@ -1,19 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/core/utils/assets.dart';
+import 'package:my_book_shelf/core/widgets/custom_loading_indicator.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key});
+  const CustomBookImage({super.key, required this.imageUrl});
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(Assets.testImage),
-        ),
-      ),
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
+      fit: BoxFit.fill,
+      placeholder: (context, url) => CustomLoadingIndicator(),
+      errorWidget: (context, url, error) => Icon(Icons.error),
     );
   }
 }

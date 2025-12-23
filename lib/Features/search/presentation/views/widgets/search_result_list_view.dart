@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_list_view_item.dart';
 
 class SearchResultListView extends StatelessWidget {
@@ -8,7 +9,8 @@ class SearchResultListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 5,
-      itemBuilder: (context, index) => const BookListViewItem(),
+      itemBuilder: (context, index) =>
+          const BookListViewItem(book: BookModel()),
     );
   }
 }

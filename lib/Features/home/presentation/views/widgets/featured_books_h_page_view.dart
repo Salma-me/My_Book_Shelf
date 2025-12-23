@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
+import 'package:my_book_shelf/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:my_book_shelf/core/widgets/custom_error_widget.dart';
+import 'package:my_book_shelf/core/widgets/custom_loading_indicator.dart';
 
 class FeaturedBooksHPageView extends StatefulWidget {
   const FeaturedBooksHPageView({super.key});
@@ -26,19 +31,37 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: 280,
-      height: MediaQuery.of(context).size.height * 0.28,
-      child: PageView.builder(
-        padEnds: false,
-        controller: _controller,
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          double scale = getItemScale(index);
-          return Transform.scale(scale: scale, child: const CustomBookImage());
-        },
-      ),
+    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+      builder: (context, state) {
+        if (state is FeaturedBooksSuccess) {
+          final List<BookModel> books = state.books;
+          return SizedBox(
+            // height: 280,
+            height: MediaQuery.of(context).size.height * 0.28,
+            child: PageView.builder(
+              padEnds: false,
+              controller: _controller,
+              scrollDirection: Axis.horizontal,
+              itemCount: books.length,
+              itemBuilder: (context, index) {
+                final book = books[index];
+                final imageUrl = book.volumeInfo?.imageLinks?.thumbnail ?? '';
+                double scale = getItemScale(index);
+
+                return Transform.scale(
+                  scale: scale,
+                  child: CustomBookImage(imageUrl: imageUrl),
+                );
+              },
+            ),
+          );
+        } else if (state is FeaturedBooksFailure) {
+          return CustomErrorWidget(errMessage: state.errMessage);
+        } else {
+          return const CustomLoadingIndicator();
+        }
+        // return const SizedBox();
+      },
     );
   }
 
