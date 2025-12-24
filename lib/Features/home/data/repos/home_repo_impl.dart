@@ -13,10 +13,13 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
-        endPoint:
-            'volumes?q=subject:Programming&filter=free-ebooks&sorting=newest',
+        endPoint: 'volumes?q=subject:Programming&sorting=newest',
+        // 'volumes?q=subject:Programming&filter=free-ebooks&sorting=newest',
       );
       List<BookModel> books = [];
+      if (data['totalItems'] == 0) {
+        return left(ServerFailure(errMessage: 'No Books Available'));
+      }
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
@@ -36,6 +39,9 @@ class HomeRepoImpl implements HomeRepo {
         endPoint: 'volumes?q=subject:Programming',
         // 'volumes?q=subject:Programming&filter=free-ebooks',
       );
+      if (data['totalItems'] == 0) {
+        return left(ServerFailure(errMessage: 'No Books Available'));
+      }
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item as Map<String, dynamic>));
