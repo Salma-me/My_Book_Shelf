@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:my_book_shelf/constants.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/utils/app_router.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 

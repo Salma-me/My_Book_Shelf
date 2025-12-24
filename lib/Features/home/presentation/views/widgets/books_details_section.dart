@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_details_actions.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:my_book_shelf/constants.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
 class BookDetailsSection extends StatelessWidget {
@@ -24,6 +24,7 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(height: 43),
         Text(
           book.volumeInfo!.title!,
+          textAlign: TextAlign.center,
           style: Styles.textStyle30.copyWith(
             fontFamily: kGTSectraFine,
             fontWeight: FontWeight.w600,
@@ -44,7 +45,7 @@ class BookDetailsSection extends StatelessWidget {
           count: book.volumeInfo?.ratingsCount?.toString() ?? '0',
         ),
         const SizedBox(height: 18),
-        const BookDetailsActions(),
+        BookDetailsActions(book: book),
       ],
     );
   }

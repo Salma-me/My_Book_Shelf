@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 
 part 'newest_books_state.dart';
 

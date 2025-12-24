@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_details_custom_appbar.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/books_details_section.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/featured_books_section.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key, required this.book});

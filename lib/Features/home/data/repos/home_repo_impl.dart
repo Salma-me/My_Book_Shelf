@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo.dart';
 import 'package:my_book_shelf/core/errors/failures.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/utils/api_service.dart';
 
 class HomeRepoImpl implements HomeRepo {

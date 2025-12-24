@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/errors/failures.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks();

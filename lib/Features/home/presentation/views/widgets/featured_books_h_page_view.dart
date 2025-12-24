@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_book_shelf/Features/home/data/models/book_model/book_model.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/widgets/custom_error_widget.dart';
 import 'package:my_book_shelf/core/widgets/custom_loading_indicator.dart';
 

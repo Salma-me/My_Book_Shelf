@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_book_shelf/core/models/book_model/book_model.dart';
+import 'package:my_book_shelf/core/utils/functions/launch_url.dart';
 import 'package:my_book_shelf/core/widgets/custom_button.dart';
 
 class BookDetailsActions extends StatelessWidget {
-  const BookDetailsActions({super.key});
+  const BookDetailsActions({super.key, required this.book});
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: const Row(
+      child: Row(
         children: [
           Expanded(
             child: CustomButton(
@@ -25,6 +28,9 @@ class BookDetailsActions extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
+              onPressed: () async {
+                customLaunchUrl(context, book.volumeInfo!.previewLink);
+              },
               fontSize: 16,
               backgroundColor: Color(0xffF08363),
               textColor: Colors.white,
