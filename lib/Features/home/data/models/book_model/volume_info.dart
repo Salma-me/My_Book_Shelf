@@ -16,7 +16,7 @@ class VolumeInfo extends Equatable {
   final int? pageCount;
   final String? printType;
   final List<String>? categories;
-  final int? averageRating;
+  final double? averageRating;
   final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
@@ -56,8 +56,9 @@ class VolumeInfo extends Equatable {
     title: json['title'] as String?,
     authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
     publisher: json['publisher'] as String?,
-    ratingsCount: json['ratingsCount'] as int?,
-    averageRating: json['averageRating'] as int?,
+    averageRating: (json['averageRating'] as num?)?.toDouble(),
+    ratingsCount: (json['ratingsCount'] as num?)?.toInt(),
+
     description: json['description'] as String?,
     publishedDate: json['publishedDate'] as String?,
     industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
@@ -92,8 +93,8 @@ class VolumeInfo extends Equatable {
     'publisher': publisher,
     'publishedDate': publishedDate,
     'description': description,
-    'averageRating':averageRating,
-    'ratingsCount':ratingsCount,
+    'averageRating': averageRating,
+    'ratingsCount': ratingsCount,
     'industryIdentifiers': industryIdentifiers?.map((e) => e.toJson()).toList(),
     'readingModes': readingModes?.toJson(),
     'pageCount': pageCount,
