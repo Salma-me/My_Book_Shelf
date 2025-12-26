@@ -11,7 +11,6 @@ The app features a clean UI, smooth navigation, and modern Flutter architecture 
   <img alt="Fallback image description" src="media/logo/logo_light.png" style="border-radius: 3%;">
 </p>
 
----
 ## Table of Contents
 - [Features](#features)
 - [Demo](#demo)
@@ -21,7 +20,6 @@ The app features a clean UI, smooth navigation, and modern Flutter architecture 
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
----
 
 ## Features
 
@@ -33,40 +31,38 @@ The app features a clean UI, smooth navigation, and modern Flutter architecture 
 ✔ Smooth scrolling & pagination   
 ✔ Clean and responsive UI  
 
----
 
-## 🎬 Demo
+## Demo
 
 ### 🔵 Splash & Home Screen
-<div style="display: flex; justify-content: center; gap: 20px; padding: 16px;">
-  <div>
-    <img src="media/splash_view_demo.gif" width="200" style="border-radius: 5%;"/>
-    <p align="center">Splash Screen</p>
-  </div>
-  <div>
-    <img src="media/home_view_demo.gif" width="200" style="border-radius: 5%;" />
-    <p align="center">Home View</p>
-  </div>
+
+<div align="center">
+  
+  | Splash Screen | Home View |
+  |---------------|-----------|
+  | <img src="media/splash_view_demo.gif" width="200" style="border-radius: 5%;" /> | <img src="media/home_view_demo.gif" width="200" style="border-radius: 5%;" /> |
 </div>
-
-
 
 ### 🔍 Search Feature
-<div style="display: flex;justify-content: center; gap: 10px; padding: 16px;">
-  <img src="media/screenshots/search_view.png" width="200" style="border-radius: 5%;"/>
-  <img src="media/search_demo.gif" width="200" style="border-radius: 5%;"/>
-</div>
 
+<div align="center">
+  
+  | View | Demo |
+  |---------------|-----------|
+  | <img src="media/screenshots/search_view.png" width="200" style="border-radius: 5%;" /> | <img src="media/search_demo.gif" width="200" style="border-radius: 5%;" /> |
+</div>
 
 ### 📘 Book Details & Access to Book Preview
-<div style="display: flex;justify-content: center; gap: 10px; padding: 16px;">
-  <img src="media/screenshots/book_details.png" width="200" style="border-radius: 5%;"/>
-  <img src="media/book_details_and_preview_link_demo.gif" width="200" style="border-radius: 5%;"/>
+
+<div align="center">
+  
+  | View | Demo |
+  |---------------|-----------|
+  | <img src="media/screenshots/book_details.png" width="200" style="border-radius: 5%;" /> | <img src="media/book_details_and_preview_link_demo.gif" width="200" style="border-radius: 5%;" /> |
 </div>
 
----
 
-## 🏗 Tech Stack
+## Tech Stack
 
 - **Flutter & Dart** – UI & application logic  
 - **Bloc** – State Management  
@@ -79,7 +75,6 @@ The app features a clean UI, smooth navigation, and modern Flutter architecture 
 - **Fonts & Icons** – Google Fonts & FontAwesome  
 - **Functional Programming** – Dartz 
 
----
 
 ## Installation
 
@@ -89,9 +84,8 @@ git clone https://github.com/YOUR_USERNAME/MyBookShelf.git
 cd MyBookShelf
 flutter pub get
 flutter run
-
-
 ```
+
 ## Future Updates
 
 - Dark mode / Light mode support
@@ -101,7 +95,6 @@ flutter run
 - Multi-language support
 - Payment Availability
 
----
 
 ## Acknowledgements
 
@@ -110,8 +103,7 @@ flutter run
 - Flutter community & Bloc documentation
 - Icons by [FontAwesome](https://fontawesome.com/)
 - Fonts by [Google Fonts](https://fonts.google.com/)
----
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - view the [LICENSE](LICENSE) file for details.
