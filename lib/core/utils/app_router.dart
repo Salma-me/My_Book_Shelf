@@ -4,6 +4,8 @@ import 'package:my_book_shelf/Features/home/data/repos/home_repo_impl.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/book_details_view.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/home_view.dart';
+import 'package:my_book_shelf/Features/search/data/repos/search_repo_impl.dart';
+import 'package:my_book_shelf/Features/search/presentation/manager/search_books_cubit/search_books_cubit.dart';
 import 'package:my_book_shelf/Features/search/presentation/views/search_view.dart';
 import 'package:my_book_shelf/Features/splash/presentation/views/splash_view.dart';
 import 'package:my_book_shelf/core/models/book_model/book_model.dart';
@@ -27,7 +29,15 @@ abstract class AppRouter {
           );
         },
       ),
-      GoRoute(path: kSearchViewPath, builder: (context, state) => SearchView()),
+      GoRoute(
+        path: kSearchViewPath,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SearchBooksCubit(getIt.get<SearchRepoImpl>()),
+            child: SearchView(),
+          );
+        },
+      ),
     ],
   );
 }
