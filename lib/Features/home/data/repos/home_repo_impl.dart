@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo.dart';
 import 'package:my_book_shelf/core/errors/failures.dart';
 import 'package:my_book_shelf/core/models/book_model/book_model.dart';
@@ -12,6 +13,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
+      debugPrint('Fetching: newest');
       var data = await apiService.get(
         endPoint: 'volumes?q=subject:Computer&sorting=newest',
         // 'volumes?q=subject:Programming&filter=free-ebooks&sorting=newest',
@@ -26,6 +28,10 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
+        debugPrint('Status: ${e.response?.statusCode}');
+        debugPrint('Data: ${e.response?.data}');
+        debugPrint('Message: ${e.message}');
+        debugPrint('URI: ${e.requestOptions.uri}');
         return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(errMessage: e.toString()));
@@ -35,6 +41,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
+      // debugPrint('Fetching: Featured');
       var data = await apiService.get(
         endPoint: 'volumes?q=subject:Programming',
         // 'volumes?q=subject:Programming&filter=free-ebooks',
@@ -49,6 +56,11 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
+        // debugPrint('Status: ${e.response?.statusCode}');
+        // debugPrint('Data: ${e.response?.data}');
+        // debugPrint('Message: ${e.message}');
+        // debugPrint('URI: ${e.requestOptions.uri}');
+        // rethrow;
         return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(errMessage: e.toString()));

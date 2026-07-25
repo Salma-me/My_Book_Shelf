@@ -9,6 +9,7 @@ class CustomBookImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // debugPrint('Image URL: $imageUrl');
     return AspectRatio(
       aspectRatio: 2.5/4,
       child: ClipRRect(

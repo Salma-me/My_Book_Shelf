@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo_impl.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
@@ -8,8 +9,9 @@ import 'package:my_book_shelf/constants.dart';
 import 'package:my_book_shelf/core/utils/app_router.dart';
 import 'package:my_book_shelf/core/utils/service_locator.dart';
 
-void main() {
+Future<void> main() async {
   setupServiceLocator();
+  await dotenv.load();
   runApp(const MyBookShelf());
 }
 

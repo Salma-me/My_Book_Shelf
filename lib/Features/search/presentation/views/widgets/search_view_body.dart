@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_book_shelf/Features/search/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:my_book_shelf/Features/search/presentation/views/widgets/search_result_list_view.dart';
-import 'package:my_book_shelf/core/utils/styles.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
