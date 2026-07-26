@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_ce_flutter/adapters.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo_impl.dart';
+import 'package:my_book_shelf/Features/home/domain/entities/book_entity.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:my_book_shelf/constants.dart';
@@ -13,6 +15,10 @@ Future<void> main() async {
   setupServiceLocator();
   await dotenv.load();
   runApp(const MyBookShelf());
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox<List<BookEntity>>(kFeaturedBox);
+  await Hive.openBox<List<BookEntity>>(kNewestBox);
 }
 
 class MyBookShelf extends StatelessWidget {
