@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_book_shelf/Features/home/data/repos/home_repo_impl.dart';
+import 'package:my_book_shelf/Features/home/domain/entities/book_entity.dart';
+import 'package:my_book_shelf/Features/home/domain/use_cases/fetch_similar_books_use_case.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/book_details_view.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/home_view.dart';
@@ -8,7 +10,6 @@ import 'package:my_book_shelf/Features/search/data/repos/search_repo_impl.dart';
 import 'package:my_book_shelf/Features/search/presentation/manager/search_books_cubit/search_books_cubit.dart';
 import 'package:my_book_shelf/Features/search/presentation/views/search_view.dart';
 import 'package:my_book_shelf/Features/splash/presentation/views/splash_view.dart';
-import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/utils/service_locator.dart';
 
 abstract class AppRouter {
@@ -24,8 +25,10 @@ abstract class AppRouter {
 
         builder: (context, state) {
           return BlocProvider(
-            create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>()),
-            child: BookDetailsView(book: state.extra as BookModel),
+            create: (context) => SimilarBooksCubit(
+              FetchSimilarBooksUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+            ),
+            child: BookDetailsView(book: state.extra as BookEntity),
           );
         },
       ),

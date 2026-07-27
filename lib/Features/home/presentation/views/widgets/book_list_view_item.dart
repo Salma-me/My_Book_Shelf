@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_book_shelf/Features/home/domain/entities/book_entity.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:my_book_shelf/constants.dart';
-import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/utils/app_router.dart';
 import 'package:my_book_shelf/core/utils/styles.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.book});
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class BookListViewItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomBookImage(
-                imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
+                imageUrl: book.image ?? '',
               ),
               const SizedBox(width: 30),
               Expanded(
@@ -33,7 +33,7 @@ class BookListViewItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      book.volumeInfo?.title ?? '',
+                      book.title,
                       softWrap: true,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -43,7 +43,7 @@ class BookListViewItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      book.volumeInfo?.authors?.join(', ') ?? '',
+                      book.authors ?? '',
                       textAlign: TextAlign.start,
                       style: Styles.textStyle14.copyWith(
                         color: Colors.white.withValues(alpha: 0.7),
@@ -61,10 +61,9 @@ class BookListViewItem extends StatelessWidget {
                         const Spacer(),
                         BookRating(
                           bookRating:
-                              book.volumeInfo?.averageRating?.toString() ??
-                              '0.0',
+                              book.rating,
                           count:
-                              book.volumeInfo?.ratingsCount?.toString() ?? '0',
+                              book.ratingCount,
                         ),
                       ],
                     ),

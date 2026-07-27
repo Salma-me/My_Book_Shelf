@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_shelf/core/models/book_model/book_model.dart';
+import 'package:my_book_shelf/Features/home/domain/entities/book_entity.dart';
 import 'package:my_book_shelf/core/utils/functions/launch_url.dart';
 import 'package:my_book_shelf/core/widgets/custom_button.dart';
 
 class BookDetailsActions extends StatelessWidget {
   const BookDetailsActions({super.key, required this.book});
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class BookDetailsActions extends StatelessWidget {
           Expanded(
             child: CustomButton(
               onPressed: () async {
-                customLaunchUrl(context, book.volumeInfo!.previewLink);
+                customLaunchUrl(context, book.previewLink);
               },
               fontSize: 16,
               backgroundColor: Color(0xffF08363),

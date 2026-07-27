@@ -23,13 +23,16 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
       authors: fields[3] as String?,
       price: fields[4] as String,
       rating: fields[5] as String,
+      ratingCount: fields[6] as String,
+      category: fields[7] as String,
+      previewLink: fields[8] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, BookEntity obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.bookId)
       ..writeByte(1)
@@ -41,7 +44,13 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
       ..writeByte(4)
       ..write(obj.price)
       ..writeByte(5)
-      ..write(obj.rating);
+      ..write(obj.rating)
+      ..writeByte(6)
+      ..write(obj.ratingCount)
+      ..writeByte(7)
+      ..write(obj.category)
+      ..writeByte(8)
+      ..write(obj.previewLink);
   }
 
   @override

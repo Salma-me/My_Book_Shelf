@@ -5,3 +5,4 @@ const kTransitionDuration = Duration(microseconds: 250);
 const kGTSectraFine = 'GT Sectra Fine';
 const kFeaturedBox = 'kFeaturedBox';
 const kNewestBox = 'kNewestBox';
+const kSimilarBox = 'kSimilarBox';

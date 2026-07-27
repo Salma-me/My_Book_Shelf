@@ -3,6 +3,6 @@
 import '../../../Features/home/domain/entities/book_entity.dart';
 
 List<BookEntity> getBooksData(String boxName) {
-    var box = Hive.box(boxName);
-    return box.values.toList() as List<BookEntity>;
+    var box = Hive.box<BookEntity>(boxName);
+    return box.values.toList();
   }

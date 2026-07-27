@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_book_shelf/Features/home/domain/entities/book_entity.dart';
 import 'package:my_book_shelf/Features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:my_book_shelf/Features/home/presentation/views/widgets/custom_book_image.dart';
-import 'package:my_book_shelf/core/models/book_model/book_model.dart';
 import 'package:my_book_shelf/core/widgets/custom_error_widget.dart';
 import 'package:my_book_shelf/core/widgets/custom_loading_indicator.dart';
 
@@ -34,7 +34,7 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
       builder: (context, state) {
         if (state is FeaturedBooksSuccess) {
-          final List<BookModel> books = state.books;
+          final List<BookEntity> books = state.books;
           return SizedBox(
             // height: 280,
             height: MediaQuery.of(context).size.height * 0.28,
@@ -45,7 +45,7 @@ class _FeaturedBooksHPageViewState extends State<FeaturedBooksHPageView> {
               itemCount: books.length,
               itemBuilder: (context, index) {
                 final book = books[index];
-                final imageUrl = book.volumeInfo?.imageLinks?.thumbnail ?? '';
+                final imageUrl = book.image ?? '';
                 double scale = getItemScale(index);
 
                 return Transform.scale(

@@ -12,7 +12,7 @@ final class SearchBooksInitial extends SearchBooksState {}
 final class SearchBooksLoading extends SearchBooksState {}
 
 final class SearchBooksSuccess extends SearchBooksState {
-  final List<BookModel> searchBooks;
+  final List<BookEntity> searchBooks;
 
   const SearchBooksSuccess({required this.searchBooks});
 }

@@ -22,7 +22,6 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
 
   @override
   List<BookEntity> fetchSimilarBooks({required String category}) {
-    // TODO: implement fetchSimilarBooks
-    throw UnimplementedError();
+    return getBooksData(kSimilarBox);
   }
 }
