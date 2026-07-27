@@ -1,7 +1,7 @@
 # 📚 MyBookShelf
 
-[![Flutter](https://img.shields.io/badge/flutter-3.9-blue?logo=flutter&logoColor=white)](https://flutter.dev/)
-[![Dart](https://img.shields.io/badge/dart-3.9-blue?logo=dart&logoColor=white)](https://dart.dev/)
+[![Flutter](https://img.shields.io/badge/flutter-3.44.7-blue?logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/dart-3.12.2-blue?logo=dart&logoColor=white)](https://dart.dev/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 MyBookShelf is a Flutter application that allows users to discover, browse, and search books using the Google Books API.
@@ -67,7 +67,8 @@ The app features a clean UI, smooth navigation, and modern Flutter architecture 
 - **Flutter & Dart** – UI & application logic  
 - **Bloc** – State Management  
 - **MVVM (Clean Architecture)** – Maintainable code structure  
-- **Google Books API** – Book data (via Dio HTTP client)  
+- **Google Books API** – Book data (via Dio HTTP client)
+- **Hive** – Local caching and offline data persistence  
 - **Dependency Injection** – GetIt  
 - **Caching & Image Loading** – cached_network_image  
 - **Navigation** – go_router  
